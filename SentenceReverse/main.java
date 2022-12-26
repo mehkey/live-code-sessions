@@ -28,9 +28,28 @@ class Solution {
     reversed: ['e''c''i''t'....'r''e''p']   
 
     
+    Approach 2
+
+
+    Reverse all characters
+    
+    loop for i in all index
+
+       find the first space at index j
+
+       reverse from i to j
+       
+    return the answer
+
+
+    time: O(N)
+    
+    space: O(1)
+       
+       
     
     Extra Space
-    
+
   */
   static char[] reverseWords(char[] arr) {
     /*int total = arr.length;
