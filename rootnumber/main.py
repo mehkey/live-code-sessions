@@ -28,3 +28,11 @@ function root(x, n) {
 
   return -1
 }
+
+
+
+Friring rounds
+  bad teams
+  Regular annual 10% reduction (Amazon)
+  
+  January 
