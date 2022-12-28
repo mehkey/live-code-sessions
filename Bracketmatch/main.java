@@ -59,3 +59,5 @@ function bracketMatch(text):
             ans += 1
 
     return ans + diffCounter
+
+
