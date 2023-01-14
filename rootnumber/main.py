@@ -1,5 +1,5 @@
 
-function root(x, n) {
+function root(x, n) :
 
   l = 0
 
