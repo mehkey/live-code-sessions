@@ -50,8 +50,8 @@ def shortestWordEditPath(source, target, words):
 
   for word in words:
     
-    for i,l in enumerate(word):
-      
+    for i in range(len(word)):
+
       new = create_word(word,i)
 
       if new not in G:
@@ -61,22 +61,17 @@ def shortestWordEditPath(source, target, words):
 
   counter = 0
   
-  #q = deque()
-  
   q = []
   
   q.append(source)
   
   visited = set()
  
-  index = 0
-  
   while q:
     
     for _ in q:
       
       word = q[0]
-      #index += 1
 
       q = q[1:]
       
@@ -85,11 +80,10 @@ def shortestWordEditPath(source, target, words):
 
       visited.add(word)
 
-      for i,l in enumerate(word):
-        # 0 1 2 ...
-        
+      for i in range(len(word)):
+
         new = create_word(word,i)
-        
+
         if new in G:
 
           for full_word in G[new]:
@@ -103,5 +97,4 @@ def shortestWordEditPath(source, target, words):
 def create_word(word,i):
   return word[0:i] + '*' + word[i+1:]
 
-  
   #McGill Canada
