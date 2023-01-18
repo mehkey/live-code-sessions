@@ -105,6 +105,39 @@ class HTree:
     for child in self.childTrees:
       child.drawTree()
 
+  def drawTreeRecursive(self, depth):
+    
+    if depth == 0:
+      return
+
+    #we have the center of the tree
+    center:Position = self.centerPosition
+    half:int = self.length/2
+
+    #Create the line for center bar
+    drawLine(center, Position(center.x+half,center.y) )
+    drawLine(center, Position(center.x-half,center.y) )
+
+    #Create the line for right bar
+    drawLine(Position(center.x+half,center.y+half), Position(center.x-half,center.y-half) )
+
+    #Create the line for left bar
+    drawLine(Position(center.x-half,center.y-half), Position(center.x-half,center.y+half) )
+
+    new_length = self.length / sqrt(2)
+    half = self.length /2
+    center = self.centerPosition
+
+    new_centers = [[center.x - half, center.y - half],
+    [center.x + half, center.y - half],
+    [center.x + half, center.y + half],
+    [center.x + half, center.y + half]]
+    
+    for i,new_center in enumerate(new_centers):
+
+      newTree = HTree(Position(new_center[0],new_center[1]), new_length)
+
+      newTree.drawTreeRecursive(depth - 1)
 
 class TreeDrawer:
   
@@ -123,6 +156,40 @@ t.drawTree(4)
 def drawLine(position0: Position,position1: Position):
     pass
 
+
+def drawTreeRecursive( depth, length, centerPosition):
+    
+  if depth == 0:
+    return
+
+  #we have the center of the tree
+  center:Position = centerPosition
+  half:int = length/2
+
+  #Create the line for center bar
+  drawLine(center, Position(center.x+half,center.y) )
+  drawLine(center, Position(center.x-half,center.y) )
+
+  #Create the line for right bar
+  drawLine(Position(center.x+half,center.y+half), Position(center.x-half,center.y-half) )
+
+  #Create the line for left bar
+  drawLine(Position(center.x-half,center.y-half), Position(center.x-half,center.y+half) )
+
+  new_length = length / Math.sqrt(2)
+  half = length /2
+  center = centerPosition
+
+  new_centers = [[center.x - half, center.y - half],
+  [center.x + half, center.y - half],
+  [center.x + half, center.y + half],
+  [center.x + half, center.y + half]]
+
+  for new_center in new_centers:
+
+    newTree = HTree(Position(new_center[0],new_center[1]), new_length)
+
+    newTree.drawTreeRecursive(depth - 1,new_length, Position(new_center[0],new_center[1]))
 
 
 #print "Practice makes Perfect!"   
