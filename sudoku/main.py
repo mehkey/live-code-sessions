@@ -139,6 +139,7 @@ def sudoku_solve(board):
 
           if check_row(board,k,i,j) or check_col(board,k,i,j) or check_3_by_3(board,k,i,j) :
             continue
+            
           board[i][j] = k
 
           if sudoku_solve(board):
